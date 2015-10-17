@@ -1,0 +1,1111 @@
+#==============================O==============================#
+# I---------------------------------------------------------I #
+# |    Advanced Achievements 2.0 configuration - Readme     | #
+# 1---------------------------------------------------------1 #
+#==============================o==============================#
+
+# You can use Minecraft chat colours in messages and names, but include ' ' around the text.
+# If you want to use a ' in a text, write two ' instead, and include additional ' ' around the whole text.
+# In command rewards, PLAYER designates the name of the player who just got the achievement.
+# Only spaces, no tabs. Don't forget the indents, plugin won't work otherwise! 
+# To check your file, use: yaml-online-parser.appspot.com
+# Available mobs for the Kills section: hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html
+# Available items for rewards/Crafts/Places/Breaks: hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+# Original file: dev.bukkit.org/bukkit-plugins/advanced-achievements/pages/configuration/
+#晨旭汉化，来自糖拌苦力怕服务器：http://www.sweetcreeper.com/
+#=============================O=O=============================#
+# II-------------------------------------------------------II #
+# |                        全局设置                         | #
+# 2---------------------------------------------------------2 #
+#=============================o=o=============================#
+
+# 获取记录成就的书的间隔时间(服务器重启后会重置)
+Time: 900
+
+# op上线时是否提醒有无更新
+CheckForUpdate: false
+
+#  完成成就时是否出现特效
+Firework: true
+
+# 获得记录成就的书时是否有声音
+Sound: true
+
+# 如果使用的Vault插件版本为1.4以下请开启
+RetroVault: false
+
+# 设置插件图标(默认: shamrock, "\u2618").
+Icon: "|§5\u2618§f"
+
+# 完成成就时是否全服通知
+ChatNotify: true
+
+# 用来分隔记录成就的书里的成就名/成就内容/完成日期,建议用====或者----来做分割线
+BookSeparator: '===='
+
+# 当完成以指令作为奖励的成就时是否显示"command-reward"的信息
+RewardCommandNotif: true
+
+# 是否每天备份数据
+DatabaseBackup: true
+
+# 创造模式是否可以获得成就
+RestrictCreative: false
+
+# 设置某世界不启用该插件(要用的话删掉[])
+ExcludedWorlds:
+  - flat
+  - old
+
+# 使用/aach top显示的数量(默认显示前五名)
+TopList: 10
+
+#=============================OOO=============================#
+# III-----------------------------------------------------III #
+# |                        数据库设置                       | #
+# 3---------------------------------------------------------3 #
+#=============================ooo=============================#
+
+# 别动
+DatabaseVersion: 5
+
+# 记录类型sqlite或者mysql.
+DatabaseType: sqlite
+
+# 设置mysql的链接(如果是sqlite则无视)
+MYSQL:
+  Database: 'jdbc:mysql://localhost:3306/minecraft'
+  User: root
+  Password: root
+
+#============================OO=OO============================#
+# IV-------------------------------------------------------IV #
+# |                         成就设置                        | #
+# 4---------------------------------------------------------4 #
+#============================oo=oo============================#
+
+# 玩家连接服务器时获得的成就
+Connections:
+  '1':
+    Message: '&4第一次进服！'
+    Name: 第一次
+    Reward:
+      Money: 10
+  '2':
+    Message: '&4第二次进服！'
+    Name: 又进了
+    Reward:
+      Money: 20
+  '10':
+    Message: '&4第十次进服！'
+    Name: 又来玩儿了
+    Reward:
+      Money: 100
+  '50':
+    Message: '&4第五十次进服！'
+    Name: 我认识你了
+    Reward:
+      Money: 1000
+  '100':
+    Message: '&4第一百次进服！'
+    Name: 老玩家
+    Reward:
+      Money: 10000
+
+# 放置指定方块时获得的成就(指定方块名称,小写).
+Places:
+  stone:
+    '100':
+      Message: '&4摆放了一百个圆石！'
+      Name: 小型石阵
+      Reward:
+        Money: 100
+    '1000':
+      Message: '&4摆放了一千个圆石！'
+      Name: 中型石阵！
+      Reward:
+        Money: 3000
+    '10000':
+      Message: '&4摆放了一万个圆石！'
+      Name: 巨石阵！
+      Reward:
+        Money: 40000
+  grass:
+    '1':
+      Message: '&4摆放了一个草方块！'
+      Name: 握草
+      Reward:
+        Money: 100
+    '5000':
+      Message: '&4摆放了五千个草方块！'
+      Name: 握了个草草草草
+      Reward:
+        Money: 10000
+  dirt:
+    '100':
+      Message: '&4摆放了一百个土块！'
+      Name: 土鳖
+      Reward:
+        Money: 100
+    '5000':
+      Message: '&4摆放了五千个土块！'
+      Name: 土尔奇
+      Reward:
+        Money: 2000
+  sapling:
+    '1':
+      Message: '&4摆放了一个橡木树苗！'
+      Name: 种橡树
+      Reward:
+        Money: 10
+    '2000':
+      Message: '&4摆放了两千个橡木树苗！'
+      Name: 种了好多橡树
+      Reward:
+        Money: 2000
+  glass:
+    '1':
+      Message: '&4摆放了一个玻璃！'
+      Name: BL
+      Reward:
+        Money: 10
+    '5000':
+      Message: '&4摆放了五千个玻璃！'
+      Name: 纯正BL
+      Reward:
+        Money: 5000
+  sand:
+    '1':
+      Message: '&4摆放了一个沙子！'
+      Name: 傻子
+      Reward:
+        Money: 10
+    '500':
+      Message: '&4摆放了五百个沙子！'
+      Name: 一堆傻子
+      Reward:
+        Money: 100
+  sandstone:
+    '1':
+      Message: '&4摆放了一个沙石！'
+      Name: 沙雕
+      Reward:
+        Money: 10
+    '5000':
+      Message: '&4摆放了五千个沙石！'
+      Name: 一群沙雕
+      Reward:
+        Money: 5000
+  sponge:
+    '1':
+      Message: '&4摆放了一个海绵体！'
+      Name: 护舒宝
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4摆放了一百个海绵体！'
+      Name: 海绵体
+      Reward:
+        Money: 300
+  tallgrass:
+    '1':
+      Message: '&4摆放了一个草！'
+      Name: 雾草
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4摆放了一百个草！'
+      Name: 雾了个草草草
+      Reward:
+        Money: 300
+  dragon_egg:
+    '1':
+      Message: '&4摆放了一个龙蛋！'
+      Name: 神蛋
+      Reward:
+        Money: 1000
+  mycelium:
+    '1':
+      Message: '&4摆放了一个菌丝！'
+      Name: 长菌
+      Reward:
+        Money: 1000
+  enchanting_table:
+    '1':
+      Message: '&4摆放了一个附魔台！'
+      Name: 安装抚S摸M台
+      Reward:
+        Money: 10
+  tnt:
+    '10':
+      Message: '&4测试的xxx'
+      Name: 咱只是测试
+      Reward:
+        Money: 10
+
+
+# 破坏指定方块时获得的成就(指定方块名称,小写).
+Breaks:
+  stone:
+    '100':
+      Message: '&4破坏了一百个圆石！'
+      Name: 塌陷
+      Reward:
+        Money: 10
+    '1000':
+      Message: '&4破坏了一千个圆石！'
+      Name: 陨石坑
+      Reward:
+        Money: 300
+    '5000':
+      Message: '&4破坏了五千个圆石！'
+      Name: 核爆坑
+      Reward:
+        Money: 500
+    '10000':
+      Message: '&4摆放了一万个圆石！'
+      Name: 显卡坑
+      Reward:
+        Money: 4000
+    '20000':
+      Message: '&4摆放了两万个圆石！'
+      Name: 小行星坑
+      Reward:
+        Money: 10000
+    '50000':
+      Message: '&4摆放了五万个圆石！'
+      Name: 半个地球
+      Reward:
+        Money: 50000
+  grass:
+    '1':
+      Message: '&4破坏了一个草方块！'
+      Name: 践踏草坪
+      Reward:
+        Money: 10
+    '5000':
+      Message: '&4破坏了五千个草方块！'
+      Name: 毁灭草原
+      Reward:
+        Money: 1000
+  dirt:
+    '100':
+      Message: '&4破坏了一百个土块！'
+      Name: 挖掘机
+      Reward:
+        Money: 100
+    '5000':
+      Message: '&4破坏了五千个土块！'
+      Name: 蓝翔挖掘机
+      Reward:
+        Money: 2000
+  sapling:
+    '1':
+      Message: '&4破坏了一个橡木树苗！'
+      Name: 毁灭森林
+      Reward:
+        Money: 10
+  glass:
+    '1':
+      Message: '&4破坏了一个玻璃！'
+      Name: 熊孩子
+      Reward:
+        Money: 10
+    '5000':
+      Message: '&4破坏了五千个玻璃！'
+      Name: 有病的熊孩子
+      Reward:
+        Money: 5000
+  sand:
+    '1':
+      Message: '&4破坏了一个沙子！'
+      Name: 坑
+      Reward:
+        Money: 10
+    '500':
+      Message: '&4破坏了五百个沙子！'
+      Name: 大坑
+      Reward:
+        Money: 100
+    '1000':
+      Message: '&4破坏了一千个沙子！'
+      Name: 天坑
+      Reward:
+        Money: 500
+  sandstone:
+    '1':
+      Message: '&4破坏了一个沙石！'
+      Name: 砸雕
+      Reward:
+        Money: 10
+  sponge:
+    '1':
+      Message: '&4破坏了一个海绵体！'
+      Name: 疼
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个海绵体！'
+      Name: 剧痛
+      Reward:
+        Money: 300
+  tallgrass:
+    '1':
+      Message: '&4破坏了一个草！'
+      Name: 除草机
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个草！'
+      Name: 除草剂
+      Reward:
+        Money: 300
+  dragon_egg:
+    '1':
+      Message: '&4破坏了一个龙蛋！'
+      Name: 暴殄天物
+      Reward:
+        Money: 1000
+  log:
+    '1':
+      Message: '&4破坏了一个木头！'
+      Name: 他舅4木头
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个木头！'
+      Name: 自力更生
+      Reward:
+        Money: 100
+  yellow_flower:
+    '1':
+      Message: '&4破坏了一个蒲公英！'
+      Name: 采花贼
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个蒲公英！'
+      Name: 采花大盗
+      Reward:
+        Money: 500
+  red_flower:
+    '1':
+      Message: '&4破坏了一个罂粟花！'
+      Name: 毒贩
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个罂粟花！'
+      Name: 被通缉的毒贩
+      Reward:
+        Money: 500
+  brown_mushroom:
+    '1':
+      Message: '&4破坏了一个鲜冬菇！'
+      Name: 灰色的小xx
+      Reward:
+        Money: 10
+  red_mushroom:
+    '1':
+      Message: '&4破坏了一个红色蘑菇！'
+      Name: 红色的小xx
+      Reward:
+        Money: 10
+  snow_layer:
+    '1':
+      Message: '&4破坏了一个雪块！'
+      Name: 小心被封
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个雪块！'
+      Name: 破坏地形，你死定了
+      Reward:
+        Money: 500
+  ice:
+    '1':
+      Message: '&4破坏了一个冰块！'
+      Name: 当心被封
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个冰块！'
+      Name: 你死定了，破坏地形
+      Reward:
+        Money: 500
+  fence:
+    '1':
+      Message: '&4破坏了一个栅栏！'
+      Name: 不走正门
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个栅栏！'
+      Name: 搬家呢你
+      Reward:
+        Money: 500
+  pumpkin:
+    '1':
+      Message: '&4破坏了一个南瓜！'
+      Name: 万圣节
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个南瓜！'
+      Name: 亿圣节
+      Reward:
+        Money: 500
+  netherrack:
+    '1':
+      Message: '&4破坏了一个地狱岩！'
+      Name: 地狱红
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个地狱岩！'
+      Name: 地狱一片红
+      Reward:
+        Money: 500
+  glowstone:
+    '1':
+      Message: '&4破坏了一个莹石！'
+      Name: 灯，等灯等灯
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个莹石！'
+      Name: 灯等等灯
+      Reward:
+        Money: 500
+  brown_mushroom_block:
+    '1':
+      Message: '&4破坏了一个鲜冬菇块！'
+      Name: 灰色的小大xx
+      Reward:
+        Money: 10
+  red_mushroom_block:
+    '1':
+      Message: '&4破坏了一个红色蘑菇块！'
+      Name: 红色的大xx
+      Reward:
+        Money: 10
+  melon_block:
+    '1':
+      Message: '&4破坏了一个西瓜！'
+      Name: 打习卦
+      Reward:
+        Money: 10
+    '100':
+      Message: '&4破坏了一百个西瓜！'
+      Name: 膊辟啥让打习卦
+      Reward:
+        Money: 500
+  enchanting_table:
+    '1':
+      Message: '&4破坏了一个附魔台！'
+      Name: 拆掉抚S摸M台
+      Reward:
+        Money: 10
+  cobblestone:
+    '1':
+      Message: '&4破坏了一个圆石！'
+      Name: 拆迁队
+      Reward:
+        Money: 10
+              
+# 击杀指定怪物时获得的成就(指定怪物名称和'player',小写).
+Kills:
+  zombie:
+    '1':
+      Message: '&8击杀了一只僵尸！'
+      Name: 脏鼻屎！
+      Reward:
+        Money: 1
+        Item: diamond 1
+    '10':
+      Message: '&8击杀了十只僵尸！'
+      Name: 干净鼻屎！
+      Reward:
+        Money: 10
+        Item: diamond 1
+    '100':
+      Message: '&8击杀了一百只僵尸！'
+      Name: 诱人鼻屎！
+      Reward:
+        Money: 100
+        Item: diamond 1
+    '500':
+      Message: '&8击杀了五百只僵尸！'
+      Name: 美味鼻屎！
+      Reward:
+        Money: 500
+        Item: diamond 1
+  creeper:
+    '1':
+      Message: '&8击杀了一只苦力怕！'
+      Name: 苦力怕！
+      Reward:
+        Money: 1
+        Item: diamond 1
+    '10':
+      Message: '&8击杀了十只苦力怕！'
+      Name: 干净苦力怕！
+      Reward:
+        Money: 10
+        Item: diamond 1
+    '100':
+      Message: '&8击杀了一百只苦力怕！'
+      Name: 糖拌苦力怕！
+      Reward:
+        Money: 100
+        Item: diamond 1
+    '500':
+      Message: '&8击杀了五百只苦力怕！'
+      Name: 美味苦力怕！
+      Reward:
+        Money: 500
+        Item: diamond 1
+  skeleton:
+    '1':
+      Message: '&8击杀了一只骷髅！'
+      Name: 不要射我
+      Reward:
+        Money: 1
+        Item: diamond 1
+    '10':
+      Message: '&8击杀了十只骷髅！'
+      Name: 反射
+      Reward:
+        Money: 10
+        Item: diamond 1
+    '100':
+      Message: '&8击杀了一百只骷髅！'
+      Name: 射它一脸
+      Reward:
+        Money: 100
+        Item: diamond 1
+    '500':
+      Message: '&8击杀了五百只骷髅！'
+      Name: 满喉精液
+      Reward:
+        Money: 500
+        Item: diamond 1
+  spider:
+    '1':
+      Message: '&8击杀了一只蜘蛛！'
+      Name: 截肢
+      Reward:
+        Money: 1
+        Item: diamond 1
+    '10':
+      Message: '&8击杀了十只蜘蛛！'
+      Name: 蜘蛛人
+      Reward:
+        Money: 10
+        Item: diamond 1
+    '100':
+      Message: '&8击杀了一百只蜘蛛！'
+      Name: 蜘蛛侠
+      Reward:
+        Money: 100
+        Item: diamond 1
+    '500':
+      Message: '&8击杀了五百只蜘蛛！'
+      Name: 真蜘蛛侠
+      Reward:
+        Money: 500
+        Item: diamond 1
+  enderman:
+    '1':
+      Message: '&8击杀了一只末影人！'
+      Name: 黑长直
+      Reward:
+        Money: 1
+        Item: diamond 1
+    '10':
+      Message: '&8击杀了十只末影人！'
+      Name: 征服黑长直
+      Reward:
+        Money: 10
+        Item: diamond 1
+    '50':
+      Message: '&8击杀了五十只末影人！'
+      Name: 成为黑长直
+      Reward:
+        Money: 100
+        Item: diamond 1
+  pig:
+    '1':
+      Message: '&8击杀了一只猪！'
+      Name: 猪！
+      Reward:
+        Money: 1
+        Item: diamond 1
+    '10':
+      Message: '&8击杀了十只猪！'
+      Name: 屠夫
+      Reward:
+        Money: 10
+        Item: diamond 1
+    '100':
+      Message: '&8击杀了一百只猪！'
+      Name: 无肉不欢
+      Reward:
+        Money: 100
+        Item: diamond 1
+    '500':
+      Message: '&8击杀了五百只猪！'
+      Name: 猪猪侠！
+      Reward:
+        Money: 500
+        Item: diamond 1
+          
+# 合成指定物品时获得的成就(指定物品名称.小写).
+Crafts:
+  diamond_sword:
+    '1':
+      Message: '&8制作了一把钻石剑！'
+      Name: 神贱
+      Reward:
+        Money: 2
+  crafting_table:
+    '1':
+      Message: '&8制作了一个工作台！'
+      Name: 和游戏自带成就抢生意
+      Reward:
+        Money: 2
+  iron_door:
+    '1':
+      Message: '&8制作了一个钢门！'
+      Name: 肛门
+      Reward:
+        Money: 2
+  torch:
+    '1':
+      Message: '&8制作了一个火把！'
+      Name: 神说要有火
+      Reward:
+        Money: 2
+  bookshelf:
+    '1':
+      Message: '&8制作了一个书架！'
+      Name: 人类进步的阶梯
+      Reward:
+        Money: 2
+  iron_block:
+    '1':
+      Message: '&8制作了一个铁块！'
+      Name: 节约空间
+      Reward:
+        Money: 2
+  diamond_block:
+    '1':
+      Message: '&8制作了一个钻石块！'
+      Name: 壕
+      Reward:
+        Money: 2
+  flint_and_steel:
+    '1':
+      Message: '&8制作了一个打火石！'
+      Name: FFF
+      Reward:
+        Money: 2
+  boat:
+    '1':
+      Message: '&8制作了一个木船！'
+      Name: 'Nice boat！'
+      Reward:
+        Money: 2
+  fishing_rod:
+    '1':
+      Message: '&8制作了一个钓鱼竿！'
+      Name: 钓鱼党
+      Reward:
+        Money: 2
+      
+# 玩家死亡时获得的成就
+Deaths:
+  '1':
+    Message: '&8第一次死！'
+    Name: 不做死就不会死
+    Reward:
+      Money: 1
+  '10':
+    Message: '&8第十次死！'
+    Name: 抖m
+    Reward:
+      Money: 10
+  '50':
+    Message: '&8第五十次死！'
+    Name: rbq抖m
+    Reward:
+      Money: 100
+  '100':
+    Message: '&8第一百次死！'
+    Name: 纯正rbq
+    Reward:
+      Money: 100
+    
+# 射出箭支时获得成就
+Arrows:
+  '1':
+    Message: '射出一支箭！'
+    Name: 射了
+    Reward:
+      Money: 1
+  '50':
+    Message: '射出五十支箭！'
+    Name: 快枪手
+    Reward:
+      Money: 10
+  '100':
+    Message: '射出一百支箭！'
+    Name: 豌豆射手
+    Reward:
+      Money: 100
+    
+# 发射雪球时获得的成就
+Snowballs:
+  '1':
+    Message: '扔出了一个雪球！'
+    Name: 不痛不痒
+    Reward:
+      Money: 1
+  '100':
+    Message: '扔出了一百个雪球！'
+    Name: 继续继续
+    Reward:
+      Money: 10
+  '100':
+    Message: '扔出了五百个雪球！'
+    Name: 真是够了
+    Reward:
+      Money: 100
+    
+# 发射鸡蛋时获得的成就
+Eggs:
+  '1':
+    Message: '砸了一个鸡蛋！'
+    Name: 到这个浴池来丢东西
+    Reward:
+      Money: 1
+  '10':
+    Message: '砸了十个鸡蛋！'
+    Name: 到那个浴池来丢东西
+    Reward:
+      Money: 10
+  '50':
+    Message: '砸了五十个鸡蛋！'
+    Name: 丢东西丢东西
+    Reward:
+      Money: 10
+    
+# 钓到鱼时获得的成就
+Fish:
+  '1':
+    Message: '钓到一条鱼！'
+    Name: 上钩
+    Reward:
+      Money: 1
+  '10':
+    Message: '钓到十条鱼！'
+    Name: 业余垂钓者
+    Reward:
+      Money: 10
+  '50':
+    Message: '钓到五十条鱼！'
+    Name: 专业垂钓者
+    Reward:
+      Money: 10
+
+# 武器/装备/工具损坏时获得的成就
+ItemBreaks:
+  '1':
+    Message: '用坏了一件工具！'
+    Name: 啊。。。坏掉了
+    Reward:
+      Money: 1
+  '2':
+    Message: '用坏了两件工具！'
+    Name: 啊。。。又坏掉了
+    Reward:
+      Money: 5
+  '10':
+    Message: '用坏了十件工具！'
+    Name: 啊。。。不要
+    Reward:
+      Money: 10
+  '50':
+    Message: '用坏了五件工具！'
+    Name: 啊。。。。。
+    Reward:
+      Money: 50
+
+# 吃东西获得的成就
+EatenItems:
+  '1':
+    Message: '吃了一个食物！'
+    Name: 吃掉了
+  '5':
+    Message: '吃了五个食物！'
+    Name: 又吃掉了
+  '10':
+    Message: '吃了十个食物！'
+    Name: 吃掉了
+  '50':
+    Message: '吃了五十个食物！'
+    Name: 那里很脏的，不要吃
+  '100':
+    Message: '吃了一百个食物！'
+    Name: 不要吃我那里了啦
+    
+# 剪羊毛获得的成就
+Shear:
+  '1':
+    Message: '剪了一个羊毛！'
+    Name: 剪了
+  '100':
+    Message: '剪了一百个羊毛！'
+    Name: 剪了好几个
+    
+# 挤牛奶获得的成就
+Milk:
+  '1':
+    Message: '喝了一杯牛奶！'
+    Name: 喝milk
+  '100':
+    Message: '剪了一百杯牛奶！'
+    Name: 喝好多milk
+    
+# 和村民交易获得的成就
+Trades:
+  '1':
+    Message: '和村民交换了一次物品！'
+    Name: 援助交际
+    
+# 使用铁毡获得的成就
+AnvilsUsed:
+  '1':
+    Message: '用了一次铁毡！'
+    Name: 踏踏踏
+    
+# 附魔获得的成就
+Enchantments:
+  '1':
+    Message: '附魔一次！'
+    Name: 轻轻抚摸~
+    
+# 使用床获得的成就
+Beds:  
+  '1':
+    Message: '睡觉一次！'
+    Name: 睡了
+  '2':
+    Message: '睡觉两次！'
+    Name: 又睡了
+    
+# 达到等级获得的成就
+MaxLevel:  
+  '5':
+    Message: '&8等级达到5！'
+    Name: 5级
+    Reward:
+      Money: 10
+  '10':
+    Message: '&8等级达到10！'
+    Name: 10级
+    Reward:
+      Money: 50
+  '20':
+    Message: '&8等级达到20！'
+    Name: 20级
+    Reward:
+      Money: 100
+  '30':
+    Message: '&8等级达到30！'
+    Name: 30级
+    Reward:
+      Money: 200
+  '40':
+    Message: '&8等级达到40！'
+    Name: 40级
+    Reward:
+      Money: 400
+  '50':
+    Message: '&8等级达到50！'
+    Name: 50级
+    Reward:
+      Money: 800
+  '60':
+    Message: '&8等级达到60！'
+    Name: 60级
+    Reward:
+      Money: 1600
+  '70':
+    Message: '&8等级达到70！'
+    Name: 70级
+    Reward:
+      Money: 3200
+  '80':
+    Message: '&8等级达到80！'
+    Name: 80级
+    Reward:
+      Money: 6400
+  '90':
+    Message: '&8等级达到90！'
+    Name: 90级
+    Reward:
+      Money: 12800
+  '100':
+    Message: '&8等级达到100！'
+    Name: 100级勇士
+    Reward:
+      Money: 25600
+    
+# 使用药水获得的成就
+ConsumedPotions:
+  '1':
+    Message: '&8喝过药！'
+    Name: 嗑药
+    
+# 在服务器上在线的时间（小时，使用整数）。
+PlayedTime:
+  '1':
+    Message: '&8累计在线1小时！'
+    Name: 累计在线1小时
+    Reward:
+      Money: 10
+  '2':
+    Message: '&8累计在线2小时！'
+    Name: 累计在线2小时
+    Reward:
+      Money: 10
+  '3':
+    Message: '&8累计在线3小时！'
+    Name: 累计在线3小时
+    Reward:
+      Money: 10
+  '4':
+    Message: '&8累计在线4小时！'
+    Name: 累计在线4小时
+    Reward:
+      Money: 10
+  '5':
+    Message: '&8累计在线5小时！'
+    Name: 累计在线5小时
+    Reward:
+      Money: 10
+  '6':
+    Message: '&8累计在线6小时！'
+    Name: 累计在线6小时
+    Reward:
+      Money: 10
+  '7':
+    Message: '&8累计在线7小时！'
+    Name: 累计在线7小时
+    Reward:
+      Money: 10
+  '8':
+    Message: '&8累计在线8小时！'
+    Name: 累计在线8小时
+    Reward:
+      Money: 10
+  '9':
+    Message: '&8累计在线9小时！'
+    Name: 累计在线9小时
+    Reward:
+      Money: 10
+  '10':
+    Message: '&8累计在线10小时！'
+    Name: 累计在线10小时
+    Reward:
+      Money: 10
+    
+# 玩家走过的距离
+DistanceFoot:
+  '1':
+    Message: '&8走了1米！'
+    Name: 啊他动了
+  '10':
+    Message: '&8走了10米！'
+    Name: 他会走路了
+  '100':
+    Message: '&8走了100米！'
+    Name: 走了好远
+  '1000':
+    Message: '&8走了1000米！'
+    Name: 日行千里
+  '10000':
+    Message: '&8走了10000米！'
+    Name: 行万里路
+
+    
+# 玩家骑在猪身上走过的距离
+DistancePig:
+  '10':
+    Message: '&8骑着猪走了10米！'
+    Name: 日了猪了
+    
+# 玩家骑在马身上走过的距离
+DistanceHorse:
+  '10':
+    Message: '&8骑着马走了10米！'
+    Name: 日了马了
+    
+# 玩家坐在矿车里走过的距离
+DistanceMinecart:
+  '10':
+    Message: '&8坐在矿车里走了10米！'
+    Name: 坐火车
+    
+# 玩家坐在船里走过的距离
+DistanceBoat:
+  '10':
+    Message: '&8坐在船里走了10米！'
+    Name: 远航，才怪咧
+    
+# 当一个物品掉在地上的高度
+ItemDrops:
+  '1':
+    Message: '&8物品从1格高落下！'
+    Name: 尝试砸死地球
+  '5':
+    Message: '&8物品从5格高落下！'
+    Name: 地球怕了
+  '10':
+    Message: '&8物品从10格高落下！'
+    Name: 地球被砸疼了
+  '50':
+    Message: '&8物品从50格高落下！'
+    Name: 这人疯了
+
+    
+# 锄地的次数
+HoePlowings:
+  '10':
+    Message: '&8锄地十格！'
+    Name: 农夫
+    Reward:                 
+        Item: cocoa 15
+    
+# 使用骨粉的次数
+Fertilising:
+  '15':
+    Message: '&8用了十次骨粉！'
+    Name: 乌拉拉快长大
+    
+#============================OOOOO============================#
+# V---------------------------------------------------------V #
+# |                  Command achievements                   | #
+# 5--------------------------ooooo--------------------------5 #
+#============================ooooo============================#
+    
+# 成就循环给予
+MultiCommand: false
+    
+# A player with achievement.give (or the console) can use the /aach give yourAch1 playerName 
+# to give yourAch1 achievement to playerName.
+Commands:
+  yourAch1:
+    Message: 你触发了这个特殊事件！
+    Name: 特殊事件成就！
