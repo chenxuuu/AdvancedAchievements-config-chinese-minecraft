@@ -1,0 +1,37 @@
+# 
+# +--------------------------------------------------------+ #
+# |           Advanced Achievements language file          | #
+# +--------------------------------------------------------+ #
+configuration-successfully-reloaded: 已重载配置
+configuration-reload-failed: 重载时配置错误，请查看日志
+no-permissions: 你没有权限
+top-achievement: 成就排名靠前的人：
+player-rank: 目前的等级：
+number-achievements: 取得的成就：
+book-received: 你获得了你的成就书！
+book-delay: 你必须再等TIME秒才能拿自己的成就书。
+book-name: 成就
+player-offline: 玩家PLAYER不在线
+achievement-already-received: 玩家PLAYER在之前已经取得了这个成就
+achievement-not-found: 未找到指定的成就。
+achievement-given: 已给予成就！
+achievement-received: 玩家PLAYER获得了成就：
+achievement-new: 新成就：
+item-reward-received: 你收到了一份奖励！
+money-reward-received: 你获得了AMOUNT游戏币！
+command-reward: 奖励命令已执行！
+aach-command-book: 请收好你的成就书。
+aach-command-stats: 你所获得的成就。
+aach-command-list: 显示接收和丢失的成就。
+aach-command-top: 显示个人和全服排名。
+aach-command-give: 将ACH成就给NAME。
+aach-command-reload: 重新加载插件的配置。
+aach-command-info: 显示有关该插件的各种信息。
+version-command-name: '姓名:'
+version-command-version: '版本:'
+version-command-website: '网站:'
+version-command-author: '作者:'
+version-command-description: '描述:'
+version-command-description-details: Advanced Achievements enables unique and challenging achievements. Try to collect as many as you can, earn rewards, climb the rankings and receive RP books!（没看懂不翻译）
+version-command-vault: 'Vault integration:'
+version-command-database: '数据库类型:'
